@@ -11,9 +11,11 @@ rm -rf "$APP_BUNDLE"
 
 # Create app bundle structure
 mkdir -p "$APP_BUNDLE/Contents/MacOS"
+mkdir -p "$APP_BUNDLE/Contents/Resources"
 
-# Copy Info.plist
+# Copy Info.plist and app icon
 cp Info.plist "$APP_BUNDLE/Contents/"
+cp assets/KeyboardCleaner.icns "$APP_BUNDLE/Contents/Resources/"
 
 # Compile the Swift code
 echo "Compiling $APP_NAME..."

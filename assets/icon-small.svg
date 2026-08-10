@@ -1,0 +1,17 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- simplified variant for 16/32/64 px: solid shapes, no fine lines -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="#FFFFFF"/>
+  <g fill="#007AFF">
+    <!-- broom handle -->
+    <rect x="530" y="130" width="60" height="330" rx="30" transform="rotate(30 560 295)"/>
+    <!-- broom head -->
+    <path d="M 450 340 L 660 430 L 590 570 L 390 480 Z"/>
+    <!-- keyboard: 2 rows of solid keys -->
+    <rect x="247" y="620" width="150" height="130" rx="28"/>
+    <rect x="437" y="620" width="150" height="130" rx="28"/>
+    <rect x="627" y="620" width="150" height="130" rx="28"/>
+    <rect x="247" y="780" width="150" height="100" rx="28"/>
+    <rect x="437" y="780" width="150" height="100" rx="28"/>
+    <rect x="627" y="780" width="150" height="100" rx="28"/>
+  </g>
+</svg>
