@@ -26,6 +26,8 @@ swiftc KeyboardCleaner.swift -o "$EXECUTABLE" \
 
 # Check if compilation succeeded
 if [ $? -eq 0 ]; then
+    # Ad-hoc sign so the TCC/Accessibility grant survives rebuilds
+    codesign --force --sign - "$APP_BUNDLE"
     echo ""
     echo "✓ Build successful!"
     echo ""

@@ -11,7 +11,7 @@
 
 A macOS menu bar app that temporarily disables all keyboard input, so you can clean your MacBook keyboard without triggering keystrokes.
 
-Click the keyboard symbol in the menu bar to block input, click the lock to release it. Blocking is system-wide, and the keyboard is automatically re-enabled when the app quits.
+Click the keyboard symbol in the menu bar to block input, click the lock to release it. Blocking is system-wide, and the keyboard is automatically re-enabled when the app quits. As a safety net, blocking auto-unlocks after 5 minutes (a countdown is shown next to the lock; can be turned off in the menu).
 
 ## Requirements
 
@@ -42,9 +42,11 @@ For a quick test without an app bundle you can compile the single source file di
 
 1. Launch the app — a keyboard symbol appears in your menu bar
 2. Grant Accessibility permission when prompted (System Settings > Privacy & Security > Accessibility — add KeyboardCleaner and enable it). Without this permission, blocking cannot work.
-3. Click the keyboard symbol to block input — the icon changes to a lock
+3. Click the keyboard symbol to block input — the icon changes to a lock with a countdown
 4. Clean your keyboard — keystrokes have no effect
-5. Click the lock to re-enable the keyboard
+5. Click the lock to re-enable the keyboard (or wait for the 5-minute auto-unlock)
+
+Right-click (or Ctrl-click) the icon for the menu: block/stop blocking, toggle the auto-unlock timer, About, and Quit.
 
 ## How It Works
 
