@@ -1,0 +1,19 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build app bundle
+        run: ./build_app.sh
+      - name: Verify bundle structure
+        run: |
+          test -x KeyboardCleaner.app/Contents/MacOS/KeyboardCleaner
+          test -f KeyboardCleaner.app/Contents/Resources/KeyboardCleaner.icns
+          plutil -lint KeyboardCleaner.app/Contents/Info.plist
