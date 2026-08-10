@@ -13,6 +13,8 @@ A macOS menu bar app that temporarily disables all keyboard input, so you can cl
 
 Click the keyboard symbol in the menu bar to block input, click the lock to release it. Blocking is system-wide, and the keyboard is automatically re-enabled when the app quits. As a safety net, blocking auto-unlocks after 5 minutes (a countdown is shown next to the lock; can be turned off in the menu).
 
+Also works on cats: paws on the keyboard are ignored like any other keystroke.
+
 ## Requirements
 
 - macOS 12.0 (Monterey) or later
@@ -73,6 +75,10 @@ Install the Xcode command line tools:
 ```bash
 xcode-select --install
 ```
+
+## For cat owners
+
+Paws are treated as noise.
 
 ## Alternatives
 
