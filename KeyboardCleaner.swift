@@ -14,10 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Configure the button
         if let button = statusItem.button {
-            button.title = "🧹"
             button.action = #selector(toggleKeyboardBlocking)
             button.target = self
-            button.toolTip = "Click to block keyboard for cleaning"
         }
         
         // Initial state
@@ -49,13 +47,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func updateMenuTitle() {
-        if isKeyboardBlocked {
-            statusItem.button?.title = "🔒"
-            statusItem.button?.toolTip = "Keyboard is BLOCKED - Click to enable"
+        guard let button = statusItem.button else { return }
+        let symbolName = isKeyboardBlocked ? "lock.fill" : "keyboard"
+        let description = isKeyboardBlocked ? "Keyboard blocked" : "Keyboard enabled"
+        if let image = NSImage(systemSymbolName: symbolName, accessibilityDescription: description) {
+            image.isTemplate = true
+            button.image = image
+            button.title = ""
         } else {
-            statusItem.button?.title = "🧹"
-            statusItem.button?.toolTip = "Keyboard is enabled - Click to block for cleaning"
+            // Fallback for systems without SF Symbols
+            button.title = isKeyboardBlocked ? "🔒" : "🧹"
         }
+        button.toolTip = isKeyboardBlocked
+            ? "Keyboard is BLOCKED - Click to enable"
+            : "Keyboard is enabled - Click to block for cleaning"
     }
     
     private func startBlocking() {

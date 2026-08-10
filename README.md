@@ -1,4 +1,9 @@
-# KeyboardCleaner
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.png">
+    <img src="assets/logo-light.png" alt="KeyboardCleaner" width="480">
+  </picture>
+</p>
 
 A simple macOS menu bar app that allows you to temporarily disable all keyboard input, making it easy to clean your MacBook keyboard without triggering unwanted actions.
 

@@ -14,6 +14,8 @@
     <string>1.0</string>
     <key>CFBundleExecutable</key>
     <string>KeyboardCleaner</string>
+    <key>CFBundleIconFile</key>
+    <string>KeyboardCleaner</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>NSPrincipalClass</key>
