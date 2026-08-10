@@ -78,7 +78,7 @@ xcode-select --install
 
 ## For cat owners
 
-Paws are treated as noise.
+Paws are treated as noise. No emergency Cmd-Tab when the cat takes the F-row.
 
 ## Alternatives
 
