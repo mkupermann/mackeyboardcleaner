@@ -26,5 +26,9 @@ iconutil -c icns "$ICONSET" -o assets/KeyboardCleaner.icns
 rsvg-convert -w 820 assets/logo-light.svg > assets/logo-light.png
 rsvg-convert -w 820 assets/logo-dark.svg  > assets/logo-dark.png
 
+# README cat illustration (FILLBG = page background so the cat occludes the deck lines)
+sed 's/FILLBG/#FFFFFF/' assets/cat-illustration.svg | rsvg-convert -w 1000 > assets/cat-light.png
+sed 's/FILLBG/#0D1117/' assets/cat-illustration.svg | rsvg-convert -w 1000 > assets/cat-dark.png
+
 rm -rf "$(dirname "$ICONSET")"
 echo "Generated assets/KeyboardCleaner.icns, assets/logo-light.png, assets/logo-dark.png"
