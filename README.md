@@ -48,7 +48,7 @@ cp -r KeyboardCleaner.app ~/Applications/
 open ~/Applications/KeyboardCleaner.app
 ```
 
-For a quick test without an app bundle you can compile the single source file directly (`./build_and_run.sh` or plain `swiftc`), but the bundle build above is the intended way to run it — it carries the app icon and menu-bar-only behavior. Yes, it's 280 lines of Swift. You can read all of them in the time your cat spends deciding whether to sit on your keyboard.
+For a quick test without an app bundle you can compile the single source file directly with plain `swiftc`, but the bundle build above is the intended way to run it — it carries the app icon and menu-bar-only behavior. Yes, it's 280 lines of Swift. You can read all of them in the time your cat spends deciding whether to sit on your keyboard.
 
 ## Usage
 
