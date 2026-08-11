@@ -8,7 +8,7 @@
 
 cask "keyboardcleaner" do
   version "1.2.0"
-  sha256 "REPLACE_WITH_DMG_SHA256_AFTER_FIRST_RELEASE"
+  sha256 "e31c49f79c1b859650269f4caeacc367a491c9156302e737e20dc1079552c9f7"
 
   url "https://github.com/mkupermann/mackeyboardcleaner/releases/download/v#{version}/KeyboardCleaner-#{version}.dmg"
   name "KeyboardCleaner"

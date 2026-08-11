@@ -24,6 +24,12 @@ Click the keyboard symbol in the menu bar to block input, click the lock to rele
 
 Grab `KeyboardCleaner-<version>.dmg` from the [latest release](https://github.com/mkupermann/mackeyboardcleaner/releases/latest), open it, drag the app to Applications. The binary is universal (Apple Silicon + Intel), Developer ID signed, and notarized by Apple — Gatekeeper lets it in without hissing.
 
+### Homebrew
+
+```bash
+brew install --cask mkupermann/tap/keyboardcleaner
+```
+
 ### Build from source
 
 Requires the Xcode command line tools:
