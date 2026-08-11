@@ -1,0 +1,37 @@
+<svg width="660" height="420" viewBox="0 0 660 420" xmlns="http://www.w3.org/2000/svg">
+  <!-- DMG window background. Icon slots: app at (165,200), Applications drop link at (495,200). -->
+  <rect width="660" height="420" fill="#FFFFFF"/>
+  <text x="330" y="78" text-anchor="middle" font-family="Helvetica Neue" font-weight="600" font-size="34" fill="#1D1D1F">KeyboardCleaner</text>
+  <text x="330" y="106" text-anchor="middle" font-family="Helvetica Neue" font-weight="400" font-size="15" fill="#8E8E93">Drag to Applications. Then go get the cloth.</text>
+  <!-- arrow between the two icon slots -->
+  <g stroke="#007AFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <line x1="255" y1="200" x2="392" y2="200"/>
+    <path d="M 362 172 L 400 200 L 362 228"/>
+  </g>
+  <!-- sparkles -->
+  <g fill="#007AFF">
+    <path d="M 90 130 L 97 150 L 117 157 L 97 164 L 90 184 L 83 164 L 63 157 L 83 150 Z"/>
+    <path d="M 588 118 L 593 132 L 607 137 L 593 142 L 588 156 L 583 142 L 569 137 L 583 132 Z"/>
+  </g>
+  <!-- paw prints wandering off, bottom right -->
+  <g fill="#D1D1D6">
+    <g transform="translate(470 375) rotate(14)">
+      <ellipse cx="0" cy="0" rx="9" ry="7"/>
+      <circle cx="-8" cy="-10" r="3.5"/>
+      <circle cx="0" cy="-13" r="3.5"/>
+      <circle cx="8" cy="-10" r="3.5"/>
+    </g>
+    <g transform="translate(525 392) rotate(22)">
+      <ellipse cx="0" cy="0" rx="9" ry="7"/>
+      <circle cx="-8" cy="-10" r="3.5"/>
+      <circle cx="0" cy="-13" r="3.5"/>
+      <circle cx="8" cy="-10" r="3.5"/>
+    </g>
+    <g transform="translate(583 378) rotate(32)">
+      <ellipse cx="0" cy="0" rx="9" ry="7"/>
+      <circle cx="-8" cy="-10" r="3.5"/>
+      <circle cx="0" cy="-13" r="3.5"/>
+      <circle cx="8" cy="-10" r="3.5"/>
+    </g>
+  </g>
+</svg>

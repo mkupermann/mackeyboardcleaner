@@ -9,9 +9,13 @@
     <key>CFBundleIdentifier</key>
     <string>com.mkupermann.KeyboardCleaner</string>
     <key>CFBundleVersion</key>
-    <string>1.1.0</string>
+    <string>1.2.0</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.1.0</string>
+    <string>1.2.0</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>12.0</string>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.utilities</string>
     <key>CFBundleExecutable</key>
     <string>KeyboardCleaner</string>
     <key>CFBundleIconFile</key>
