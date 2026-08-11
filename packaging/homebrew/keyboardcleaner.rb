@@ -20,13 +20,11 @@ cask "keyboardcleaner" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "KeyboardCleaner.app"
 
-  zap trash: [
-    "~/Library/Preferences/com.mkupermann.KeyboardCleaner.plist",
-  ]
+  zap trash: "~/Library/Preferences/com.mkupermann.KeyboardCleaner.plist"
 
   caveats <<~EOS
     KeyboardCleaner needs Accessibility permission:
