@@ -1,4 +1,7 @@
 build/
+dist/
 *.app
+*.dmg
+*.p12
 .claude/
 .DS_Store

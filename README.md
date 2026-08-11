@@ -15,13 +15,18 @@ Click the keyboard symbol in the menu bar to block input, click the lock to rele
 
 ## Requirements
 
-- macOS 12.0 (Monterey) or later
-- Xcode command line tools (for building)
+- macOS 12.0 (Monterey) or later, Apple Silicon or Intel
 - A dirty keyboard (you have one, look closer)
 
 ## Installation
 
-Build the app bundle and launch it:
+### Download (recommended)
+
+Grab `KeyboardCleaner-<version>.dmg` from the [latest release](https://github.com/mkupermann/mackeyboardcleaner/releases/latest), open it, drag the app to Applications. The binary is universal (Apple Silicon + Intel), Developer ID signed, and notarized by Apple — Gatekeeper lets it in without hissing.
+
+### Build from source
+
+Requires the Xcode command line tools:
 
 ```bash
 git clone https://github.com/mkupermann/mackeyboardcleaner.git

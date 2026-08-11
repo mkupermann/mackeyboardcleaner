@@ -30,5 +30,12 @@ rsvg-convert -w 820 assets/logo-dark.svg  > assets/logo-dark.png
 sed 's/FILLBG/#FFFFFF/' assets/cat-illustration.svg | rsvg-convert -w 1000 > assets/cat-light.png
 sed 's/FILLBG/#0D1117/' assets/cat-illustration.svg | rsvg-convert -w 1000 > assets/cat-dark.png
 
+# DMG background (multi-resolution TIFF so Finder renders it crisp on Retina)
+DMGBG="$(mktemp -d)"
+rsvg-convert -w 660  assets/dmg-background.svg > "$DMGBG/bg.png"
+rsvg-convert -w 1320 assets/dmg-background.svg > "$DMGBG/bg@2x.png"
+tiffutil -cathidpicheck "$DMGBG/bg.png" "$DMGBG/bg@2x.png" -out assets/dmg-background.tiff
+rm -rf "$DMGBG"
+
 rm -rf "$(dirname "$ICONSET")"
 echo "Generated assets/KeyboardCleaner.icns, assets/logo-light.png, assets/logo-dark.png"
