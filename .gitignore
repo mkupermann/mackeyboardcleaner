@@ -5,3 +5,7 @@ dist/
 *.p12
 .claude/
 .DS_Store
+
+# Release tooling is kept local-only (the public repo stays source + README).
+release.sh
+make_icons.sh

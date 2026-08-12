@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/mkupermann/mackeyboardcleaner/actions/workflows/build.yml"><img src="https://github.com/mkupermann/mackeyboardcleaner/actions/workflows/build.yml/badge.svg" alt="Build status"></a>
+  <a href="https://github.com/mkupermann/mackeyboardcleaner/releases/latest"><img src="https://img.shields.io/github/v/release/mkupermann/mackeyboardcleaner?label=download&color=007AFF" alt="Latest release"></a>
 </p>
 
 A macOS menu bar app that disables all keyboard input, so you can wipe your keyboard without sending "asdfghjkl" to your team chat, closing seventeen tabs, or replying "k" to your boss.
