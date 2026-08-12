@@ -48,7 +48,7 @@ cp -r KeyboardCleaner.app ~/Applications/
 open ~/Applications/KeyboardCleaner.app
 ```
 
-For a quick test without an app bundle you can compile the single source file directly with plain `swiftc`, but the bundle build above is the intended way to run it — it carries the app icon and menu-bar-only behavior. Yes, it's 280 lines of Swift. You can read all of them in the time your cat spends deciding whether to sit on your keyboard.
+For a quick test without an app bundle you can compile the single source file directly with plain `swiftc`, but the bundle build above is the intended way to run it — it carries the app icon and menu-bar-only behavior. Yes, it's 326 lines of Swift. You can read all of them in the time your cat spends deciding whether to sit on your keyboard.
 
 ## Usage
 
@@ -77,7 +77,7 @@ This app is not just for cleaning. Paws are treated as noise: a cat walking acro
 
 ## How it works
 
-The app uses macOS's CGEventTap API to intercept and discard keyboard events (key down, key up, and modifier flag changes) before they reach any application. While blocking is active, all keyboard input is invisible to the system — whether it comes from fingers, cleaning cloths, or paws. Quitting the app removes the event tap and everything is back to normal, as if nothing ever happened. Which, technically, is true.
+The app uses macOS's CGEventTap API to intercept and discard keyboard events (key down, key up, modifier flag changes, and the F-row special functions like brightness, volume, and media keys) before they reach any application. Mouse input and the power button stay live on purpose — they are your way out. While blocking is active, all keyboard input is invisible to the system — whether it comes from fingers, cleaning cloths, or paws. Quitting the app removes the event tap and everything is back to normal, as if nothing ever happened. Which, technically, is true.
 
 ## Troubleshooting
 

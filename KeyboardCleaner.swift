@@ -13,6 +13,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private static let autoUnlockKey = "autoUnlockEnabled"
     private static let autoUnlockSeconds = 300
 
+    // NX_SYSDEFINED from IOLLEvent.h - CGEventType has no case for it.
+    // The F-row special functions (brightness/volume/media/backlight) arrive
+    // as this type with subtype 8; the key code sits in data1, bits 16-31.
+    fileprivate static let nxSysDefined: UInt32 = 14
+    private static let nxSubtypeAuxControlButtons: Int16 = 8
+    private static let nxKeyTypePower: Int = 6
+
+    // Decision rule for NX_SYSDEFINED events while blocking, kept free of
+    // event plumbing so it stays testable without TCC grants.
+    fileprivate static func shouldSwallowSysDefined(subtype: Int16, auxKeyCode: Int) -> Bool {
+        // Subtype 7 (aux mouse buttons), screen-changed, sticky-keys: pass -
+        // the mouse is the only way out of blocking.
+        guard subtype == nxSubtypeAuxControlButtons else { return false }
+        // Never swallow the power key - second emergency exit.
+        return auxKeyCode != nxKeyTypePower
+    }
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         UserDefaults.standard.register(defaults: [Self.autoUnlockKey: true])
         terminateIfAlreadyRunning()
@@ -131,8 +148,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             stopBlocking()
             isKeyboardBlocked = false
         } else {
-            startBlocking()
-            isKeyboardBlocked = true
+            // Only report "blocked" if the tap actually exists - otherwise the
+            // menu bar shows a lock while every keystroke goes through.
+            isKeyboardBlocked = startBlocking()
         }
         updateStatusItem()
     }
@@ -184,9 +202,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     // MARK: - Event tap
 
-    private func startBlocking() {
-        // Create event tap to intercept keyboard events
-        let eventMask: CGEventMask = (1 << CGEventType.keyDown.rawValue) | (1 << CGEventType.keyUp.rawValue) | (1 << CGEventType.flagsChanged.rawValue)
+    @discardableResult
+    private func startBlocking() -> Bool {
+        // Create event tap to intercept keyboard events, including the F-row
+        // special functions which arrive as NX_SYSDEFINED instead of keyDown
+        let eventMask: CGEventMask = (1 << CGEventType.keyDown.rawValue)
+            | (1 << CGEventType.keyUp.rawValue)
+            | (1 << CGEventType.flagsChanged.rawValue)
+            | (1 << Self.nxSysDefined)
 
         eventTap = CGEvent.tapCreate(
             tap: .cghidEventTap,
@@ -203,6 +226,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     }
                     return nil
                 }
+
+                if type.rawValue == AppDelegate.nxSysDefined {
+                    guard let nsEvent = NSEvent(cgEvent: event) else {
+                        return Unmanaged.passUnretained(event)
+                    }
+                    let auxKeyCode = Int((nsEvent.data1 & 0xFFFF0000) >> 16)
+                    return AppDelegate.shouldSwallowSysDefined(subtype: nsEvent.subtype.rawValue,
+                                                               auxKeyCode: auxKeyCode)
+                        ? nil
+                        : Unmanaged.passUnretained(event)
+                }
+
                 // Return nil to discard the event (block it)
                 return nil
             },
@@ -212,7 +247,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         guard let eventTap = eventTap else {
             print("Failed to create event tap. Make sure accessibility permissions are enabled.")
             showAccessibilityAlert()
-            return
+            return false
         }
 
         // Add to run loop
@@ -225,6 +260,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
 
         print("Keyboard blocking started")
+        return true
     }
 
     fileprivate func reenableTap() {
@@ -239,6 +275,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
         if let eventTap = eventTap {
             CGEvent.tapEnable(tap: eventTap, enable: false)
+            CFMachPortInvalidate(eventTap)
             self.eventTap = nil
         }
 
