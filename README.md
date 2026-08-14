@@ -62,7 +62,7 @@ Right-click (or Ctrl-click) the icon for the menu: block/stop blocking, toggle t
 
 ## Quality assurance
 
-For a quick functional test, place your cat on the keyboard and wait for the irritated stare that says "the human has finally lost it." If nothing happens on screen, the app works. If your browser now has 47 tabs of cat videos open, blocking was off — try again after step 2.
+For a quick functional test, place your cat on the keyboard and wait for the irritated stare that says "the human has finally lost it." If nothing happens on screen, the app works. If your browser now has 47 tabs of cat videos open, blocking was off -try again after step 2.
 
 <p align="center">
   <picture>
@@ -73,7 +73,7 @@ For a quick functional test, place your cat on the keyboard and wait for the irr
 
 ## For cat owners
 
-This app is not just for cleaning. Paws are treated as noise: a cat walking across the F-row triggers exactly nothing. No emergency Cmd-Tab, no accidentally sent emails, no mysterious purchases. The cat may keep the keyboard warm; your work stays where you left it.
+This app is not just for cleaning. Paws are treated as noise -> a cat walking across the F-row triggers exactly nothing. No emergency Cmd-Tab, no accidentally sent emails, no mysterious purchases. The cat may keep the keyboard warm; your work stays where you left it.
 
 ## How it works
 
